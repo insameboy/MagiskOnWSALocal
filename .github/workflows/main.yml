@@ -1,15 +1,26 @@
-name: Build WSA
+name: Build Magisk WSA
 
 on:
   workflow_dispatch:
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Run build script
-        run: echo "开始构建WSA..."
+      - name: Clone MagiskOnWSA
+        run: |
+          git clone https://github.com/LSPosed/MagiskOnWSA.git
+
+      - name: Build WSA
+        run: |
+          cd MagiskOnWSA
+          chmod +x scripts/run.sh
+          ./scripts/run.sh \
+            --arch x64 \
+            --release-type stable \
+            --gapps pico \
+            --root magisk
