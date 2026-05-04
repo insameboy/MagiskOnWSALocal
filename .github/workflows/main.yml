@@ -11,7 +11,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Clone MagiskOnWSALocal
+      - name: Clone MagiskOnWSA
         run: |
           git clone https://github.com/LSPosed/MagiskOnWSALocal.git
 
@@ -21,12 +21,6 @@ jobs:
           chmod +x scripts/run.sh
           ./scripts/run.sh \
             --arch x64 \
-            --release-type stable \
+            --release-type WIF \
             --gapps pico \
             --root magisk
-
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: WSA
-          path: MagiskOnWSALocal/output
