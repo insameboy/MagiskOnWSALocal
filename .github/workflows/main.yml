@@ -11,9 +11,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Clone MagiskOnWSA
-        run: |
-          git clone https://github.com/LSPosed/MagiskOnWSA.git
+      - - name: Clone MagiskOnWSA
+  run: |
+    git clone https://github.com/LSPosed/MagiskOnWSALocal.git
 
       - name: Build WSA
         run: |
